@@ -1,20 +1,25 @@
 package com.Mapping.Student.EnityLayer;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
+import jakarta.validation.constraints.NotNull;
 
 @Entity
 public class StudentDetails {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long id;
+	@NotNull
 	private String studentName;
+	@Column(nullable=false,unique=true)
 	private String rollNo;
 	private String adress;
+	@NotNull
 	private String phoneNo;
 	@ManyToOne
 	@JoinColumn(name="depatment_Id")
